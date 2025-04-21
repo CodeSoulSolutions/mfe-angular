@@ -1,0 +1,60 @@
+
+.highlight-win {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.game-draw {
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.high-score {
+    font-weight: bold;
+    color: green;
+    background-color: #f0f9f0;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .highlight-win {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .game-draw {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .high-score {
+        font-size: 14px;
+        padding: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .highlight-win {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .game-draw {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .high-score {
+        font-size: 12px;
+        padding: 3px;
+    }
+}

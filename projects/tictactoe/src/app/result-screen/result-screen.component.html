@@ -1,0 +1,44 @@
+<div class="result-container">
+    <h1>{{ gameResults_title }}</h1>
+    <div [ngSwitch]="gameResults.winningState">
+        <div *ngSwitchCase='playerX' class="player-details highlight-win">
+            <h2>Player X Details:</h2>
+            <p><strong>First Name:</strong> {{ playerXDetails.firstName }}</p>
+            <p><strong>Last Name:</strong> {{ playerXDetails.lastName }}</p>
+            <p><strong>Date of Birth:</strong> {{ playerXDetails.dateOfBirth }}</p>
+            <p><strong>Phone Number:</strong> {{ playerXDetails.phoneNumber }}</p>
+            <p><strong>Email:</strong> {{ playerXDetails.email }}</p>
+        </div>
+
+        <div *ngSwitchCase="playerO" class="player-details highlight-win">
+            <h2>Player O Details:</h2>
+            <p><strong>First Name:</strong> {{ playerODetails.firstName }}</p>
+            <p><strong>Last Name:</strong> {{ playerODetails.lastName }}</p>
+            <p><strong>Date of Birth:</strong> {{ playerODetails.dateOfBirth }}</p>
+            <p><strong>Phone Number:</strong> {{ playerODetails.phoneNumber }}</p>
+            <p><strong>Email:</strong> {{ playerODetails.email }}</p>
+        </div>
+
+        <div *ngSwitchDefault class="game-draw" [ngStyle]="{ 'color': 'gray' }">
+            <p>It's a draw! No winner this time.</p>
+        </div>
+    </div>
+
+    <div class="score-list">
+        <h3>Game Scores:</h3>
+        <ul>
+            <li *ngFor="let player of players; let i = index" [ngClass]="{'high-score': player.score > 50}">
+                {{ i + 1 }}. {{ player.name }} - Score: {{ player.score }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- <div class="player-form">
+        <h3>Update Player Name</h3>
+        <form (ngSubmit)="updatePlayerName()">
+            <label for="playerName">New Player Name:</label>
+            <input id="playerName" [(ngModel)]="newPlayerName" name="playerName" required />
+            <button type="submit" [disabled]="!newPlayerName">Update Name</button>
+        </form>
+    </div> -->
+</div>

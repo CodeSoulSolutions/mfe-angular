@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Edit Post</h2>
+<div mat-dialog-content>
+    <mat-form-field class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="editedData.title">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <mat-label>Body</mat-label>
+        <textarea matInput rows="3" [(ngModel)]="editedData.body"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button color="primary" (click)="save()">Save</button>
+</div>

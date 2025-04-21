@@ -1,0 +1,78 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <h1 class="logo">{{ user }}</h1>
+  
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>first name</mat-label>
+          <input matInput id="firstName" formControlName="firstName" type="text" />
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>lastName</mat-label>
+          <input matInput id="lastName" formControlName="lastName" type="text" />
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>dob</mat-label>
+          <input matInput id="dateOfBirth" formControlName="dateOfBirth" type="date" />
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Phone number</mat-label>
+          <input matInput id="phoneNumber" formControlName="phoneNumber" type="text" />
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>email</mat-label>
+          <input matInput id="email" formControlName="email" type="email" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>difficulty</mat-label>
+          <mat-select formControlName="difficulty">
+            <mat-option *ngFor="let difficulty of difficulties" [value]="difficulty">{{ difficulty }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="column">
+        <label>gender</label>
+        <mat-radio-group formControlName="gender" class="gender">
+          <mat-radio-button *ngFor="let gender of genders" [value]="gender">
+            {{ gender }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  
+    <div class="row">
+      <!-- <div class="column"> -->
+        <mat-form-field appearance="fill">
+          <mat-label>Player description</mat-label>
+          <textarea matInput formControlName="playerDescription"></textarea>
+        </mat-form-field>
+      <!-- </div> -->
+    </div> 
+  
+    <button mat-button type="submit" [disabled]="userForm.invalid">
+      Submit
+    </button>
+  </form>
+  

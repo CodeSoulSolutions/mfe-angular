@@ -1,0 +1,72 @@
+<div class="container">
+    <h2 id="api-integration-title">API Integration Demo</h2>
+    
+    <button mat-button color="accent" (click)="makeGetCall()" [ngStyle]="{ 'margin-top': '25px', 'margin-bottom': '25px'}" aria-label="Get API call" matTooltip="Get API call" aria-describedby="api-integration-title" aria-expanded="false">GET Call</button>
+
+    <mat-card class="form-container" *ngIf="getResponse.length != 0">
+        <h3>Add New Post</h3>
+        <form>
+            <p>User ID</p>
+            <mat-form-field class="full-width">
+                <mat-label>User ID</mat-label>
+                <input matInput type="number" [(ngModel)]="newPost.userId" name="userId" aria-label="Enter user ID" aria-required="true" required>
+            </mat-form-field>
+
+            <p>Title</p>
+            <mat-form-field class="full-width">
+                <mat-label>Title</mat-label>
+                <input matInput [(ngModel)]="newPost.title" name="title" aria-label="Enter title of the post" required>
+            </mat-form-field>
+
+            <p>Description</p>
+            <mat-form-field class="full-width">
+                <mat-label>Body</mat-label>
+                <textarea matInput rows="3" [(ngModel)]="newPost.body" name="body" aria-label="Enter description of the post" required></textarea>
+            </mat-form-field>
+
+            <button mat-button color="primary" (click)="makePostCall()" aria-label="Submit the post" type="submit">Submit Post</button>
+        </form>
+    </mat-card>
+
+    <div *ngIf="getResponse" aria-live="polite">
+        <h3 id="response-table">GET Response:</h3>
+        <table mat-table [dataSource]="getResponse" class="mat-elevation-z8" aria-describedby="response-table">
+            <ng-container matColumnDef="userId">
+                <th mat-header-cell *matHeaderCellDef aria-sort="ascending"> User ID </th>
+                <td mat-cell *matCellDef="let element"> {{ element.userId }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef> Title </th>
+                <td mat-cell *matCellDef="let element"> {{ element.title }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="body">
+                <th mat-header-cell *matHeaderCellDef> Body </th>
+                <td mat-cell *matCellDef="let element"> {{ element.body }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    <button mat-button color="warn" (click)="editRow(element, i)" aria-label="Edit this post">Edit</button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    <button mat-button color="warn" (click)="deleteRow(element, i)" aria-label="Delete this post">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

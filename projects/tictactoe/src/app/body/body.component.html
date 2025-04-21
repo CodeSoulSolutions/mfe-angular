@@ -1,0 +1,12 @@
+<div class="container">
+    <app-header></app-header>
+  
+    <div class="button-container" style="text-align: center; margin-top: 20px;" *ngIf = "!gameStarted">
+      <button mat-button color="primary" (click)="navigateToUserForm()">
+        Let's Play
+      </button>
+    </div>
+    
+    <router-outlet></router-outlet>
+  </div>
+  

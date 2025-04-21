@@ -1,0 +1,40 @@
+header {
+    background: #00ff;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: inline-block;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.accent {
+    color: #ffffff;
+}
+
+.tagline {
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+}
